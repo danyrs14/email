@@ -7,11 +7,64 @@
     <groupId>org.example</groupId>
     <artifactId>email</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
+        <!-- Configuración para usar Java 17 -->
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Versión de Spring Boot -->
+        <spring-boot.version>2.5.6</spring-boot.version> <!-- Ajusta la versión de Spring Boot -->
     </properties>
 
+    <dependencies>
+        <!-- Dependencia para Spring Boot Web (para crear aplicaciones RESTful) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring-boot.version}</version> <!-- Usando la versión definida -->
+        </dependency>
+
+        <!-- Dependencia para Spring Boot Mail (para enviar correos electrónicos) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-mail</artifactId>
+            <version>${spring-boot.version}</version> <!-- Usando la versión definida -->
+        </dependency>
+
+        <!-- Dependencia para Spring Boot DevTools (opcional, para mejorar el desarrollo) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>${spring-boot.version}</version> <!-- Usando la versión definida -->
+            <scope>runtime</scope>
+        </dependency>
+
+        <!-- Dependencia para pruebas unitarias -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring-boot.version}</version> <!-- Especificando la versión -->
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Dependencia para soporte de logging -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>${spring-boot.version}</version> <!-- Usando la versión definida -->
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Plugin para Spring Boot: empaquetado y ejecución -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring-boot.version}</version> <!-- Versión del plugin Spring Boot -->
+            </plugin>
+        </plugins>
+    </build>
 </project>
